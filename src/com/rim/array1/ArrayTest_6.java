@@ -1,5 +1,6 @@
 package com.rim.array1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayTest_6 {
@@ -22,12 +23,13 @@ public class ArrayTest_6 {
 		int [] numbers=null;
 		String [] name =null;
 		int [] kor = null;    int [] eng = null;    int [] math = null;
+		int []total = null; int [] temp=null;
 		
 		while(select!=4) {
-			System.out.println("1.학생등록 / 2.전체정보 조회 / 3.학생정보 검색 / 4.프로그램 종료");
+			System.out.println("1.학생등록 / 2.전체정보 조회 / 3.학생정보 검색 / 4.총점수순서 / 5.종료");
 			select = sc.nextInt();
 			
-			if(select==4) {
+			if(select==5) {
 				System.out.println("프로그램이 종료되었습니다");
 			}else if(select==1) {
 				System.out.println("학생수:");
@@ -38,6 +40,8 @@ public class ArrayTest_6 {
 				kor = new int [stuNum];
 				eng = new int [stuNum];
 				math = new int [stuNum];
+				total = new int[stuNum];
+				temp = new int[stuNum];
 				
 				for(int i=0;i<name.length;i++) {
 					System.out.println("학생이름 입력:");
@@ -50,11 +54,13 @@ public class ArrayTest_6 {
 					eng[i] = sc.nextInt();
 					System.out.println("수학점수 입력:");
 					math[i] = sc.nextInt();
+					total[i]=kor[i]+eng[i]+math[i];
+					temp[i]=total[i];
 				}
 			} else if(select==2) { 
 				for(int i=0;i<totalStuNum;i++) {
 					System.out.println("["+name[i]+"] "+numbers[i]+"  "+"국어:"+kor[i]
-							+" 영어:"+eng[i]+" 수학:"+math[i]);
+							+" 영어:"+eng[i]+" 수학:"+math[i]+" 총점:"+total[i]);
 					}	
 				System.out.println();
 			}else if(select==3) {
@@ -64,15 +70,43 @@ public class ArrayTest_6 {
 				for(int i=0;i<totalStuNum;i++) {
 					if(numbers[i]==search) {
 						System.out.println("["+name[i]+"] "+numbers[i]+"  "+"국어:"+kor[i]
-								+" 영어:"+eng[i]+" 수학:"+math[i]);
+								+" 영어:"+eng[i]+" 수학:"+math[i] +" 총점:"+total[i]);
 					}
 				}
 				System.out.println();
 			}
+			else if(select==4) {
+				int emp;
+				
+				//Arrays.sort(total);
+				
+				for(int i=0;i<total.length;i++) {
+					for(int j=i+1;j<total.length;j++) {
+						if(total[i]<total[j]) {
+							emp=total[i];
+							total[i]=total[j];
+							total[j]=emp;
+						}
+					}
+				}
+				
+				
+				for(int i=0;i<total.length;i++) {
+					for(int j=0;j<total.length;j++) {
+						if(total[i]==temp[j]) {
+							System.out.println("["+name[j]+"] "+numbers[j]+"  "+"국어:"+kor[j]
+									+" 영어:"+eng[j]+" 수학:"+math[j]+" 총점:"+total[i]);
+						}
+					}
+					
+					System.out.println();
+				}
+				
+			}
 		}//end of while
 		
 		System.out.println("end");
-		
+		sc.close();
 
 	}
 

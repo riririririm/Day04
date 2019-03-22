@@ -20,6 +20,7 @@ public class Array_2_test1 {
 		System.out.println(ar2[1]);
 		ar[1]=200;
 		System.out.println(ar2[1]);
+		sc.close();
 
 	}
 

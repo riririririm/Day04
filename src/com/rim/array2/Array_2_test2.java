@@ -8,7 +8,7 @@ public class Array_2_test2 {
 		Scanner sc = new Scanner(System.in);
 		int[] point = new int[5];
 		int max=0, min=0, maxIndex=0, minIndex=0;
-		int sum=0; int same=0;
+		int sum=0;
 		
 		for(int i=0;i<point.length;i++) {
 			System.out.println(i+1+"번 점수입력");
@@ -26,18 +26,17 @@ public class Array_2_test2 {
 				max=point[i];
 				maxIndex=i;
 			}
-		}
-		
-		for(int i=0;i<point.length;i++) {
 			sum+=point[i];
 		}
 		
-		double avg = (sum - point[minIndex] - point[maxIndex]) /3;
+		double avg = (double)(sum - point[minIndex] - point[maxIndex])/(point.length-2);
 		
 		
 		System.out.println("avg:"+avg);
 		System.out.println("max:"+max);
 		System.out.println("min:"+min);
+		
+		sc.close();
 
 	}
 

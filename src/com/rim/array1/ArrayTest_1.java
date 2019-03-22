@@ -18,7 +18,10 @@ public class ArrayTest_1 {
 		Scanner sc2 = new Scanner(System.in);
 		Scanner sc3 = new Scanner(System.in);	
 		
-	
+		
+		sc.close();
+		sc2.close();
+		sc3.close();
 	}
 
 }

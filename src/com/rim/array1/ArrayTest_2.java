@@ -13,6 +13,7 @@ public class ArrayTest_2 {
 		int count = sc.nextInt();
 		System.out.println("ar2["+count+"] : "+ar2[count]);
 
+		sc.close();
 	}
 
 }

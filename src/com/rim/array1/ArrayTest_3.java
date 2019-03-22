@@ -15,7 +15,8 @@ public class ArrayTest_3 {
 			System.out.println("없는 번호입니다.");
 		}else
 			System.out.println(arr[num]);
-
+		sc.close();
 	}
+	
 
 }
