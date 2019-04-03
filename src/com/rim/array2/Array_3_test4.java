@@ -16,6 +16,8 @@ public class Array_3_test4 {
 			for(int j=0;j<nums[i].length;j++)
 				System.out.println(nums[i][j]);
 		}
+		System.out.println("test");
+		System.out.println("test");
 
 	}
 
